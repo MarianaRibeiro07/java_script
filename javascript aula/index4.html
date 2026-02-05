@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>🍓🍌🍍Monte o seu Suco do jeito que quiser!</h2>
+    <p>Voce pode escolher, varias ou todas as frutas:</p>
+
+    <select id="frutas" multiple size="3" style="width: 180px;">
+        <option value="morango">🍓 Morango</option>
+        <option value="Banana">🍓 Banana</option>
+        <option value="Abacaxi">🍓 Abacaxi</option>
+    </select>
+    <br><small>(Use Ctrl ou Shift para selecionar varias frutas)</small><br><br>
+
+    <button type="button" onclick="selecionarTodas()">Selecionar Todas 🍓🍌🍍</botton><br><br>
+
+
+    <label>Escolha o liquido:</label><br>
+    <input type="radio" name="liquido" value="agua" checked> agua💧<br>
+    <input type="radio" name="liquido" value="leite" checked> leite 🥛<br>
+
+    <label>Açucar?</label><br>
+    <input type="checkbox" id="acucar">Sim, quero açucar 🍬<br><br>
+
+    <button onclick="fazerSuco()">Preparar Suco</button>
+
+    <script>
+
+        // funcao principal: faz o suco com base nas escolhas
+        function fazerSuco(){
+
+            let frutasSelecionadads = Array.from(document.getElementById("frutas").selectedOptions).map(opcao => opcao.value);
+
+            let liquido = document.querySelector("input[name='liquido']:checked").value;
+
+            let acucar = document.getElementById("acucar").checked ? "com acucar" : "sem acucar";
+
+            // caso o usuario nao escolha nenhuma fruta
+            if(frutasSelecionadas.length --- 0){
+                alert("⚠️ por favor, selecione pelo menos uma fruta");
+                return;
+            }
+
+            // junta as frutas selecionas
+            let frutasTexto = frutasSelecionadas.join("e");
+
+            let sucoFinal = '🥤 seu suco de $(frutasTexto) com $(liquido) $(acucar) esta pronto';
+            
+            // exibe o resultado
+            alert(sucoFinal);
+        }
+
+        // funcao para selecionar todas as frutas automaticamente
+        function selecionarTodas(){
+            let lista= document.getElementById("Frutas");
+            for (let i = 0; i < lista.options.length; i++){
+                lista.options[i].selected = true;
+            }
+            alert("✅ todas as frutas foram selecionadas!");
+        }
+    </script>
+</body>
+</html>

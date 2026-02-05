@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Programa de Boas Vindas com concatenação de campos
+    </h3>
+
+    <!-- definição de formulario -->
+     <form name="FormConcatena" action="" method="post">
+        <p>Digite o nome: <input type="text" name="f_nome"></p>
+        <p>Digite o sobrenome: <input type="text" name="f_sobrenome"></p>
+        <p>Digite seu aniversario: <input type="date" name="f_idade"></p>
+        <input type="button" name="btn_concatena" value="concatenar" onclick="concatena()">
+        <input type="reset" name="btn_Cancela" value="Cancelar">
+     </form>
+
+     <!-- define codigo java -->
+     <script language="javascript">
+
+        var js_nome
+        var js_sobrenome
+        var js_nomecompleto
+        var js_idade
+
+        function concatena(){
+            // entrada de dados
+            js_nome = document.FormConcatena.f_nome.value;
+            js_sobrenome = document.FormConcatena.f_sobrenome.value;
+            js_idade = document.FormConcatena.f_idade.value;
+
+            //  processamento de dados
+            js_nomecompleto=js_nome + ' ' + js_sobrenome;
+            
+
+            // saida de dados
+            window.alert('ola ' + js_nomecompleto + ' Sua data de nascimento é: ' + js_idade);
+
+        }
+
+     </script>
+</body>
+</html>
